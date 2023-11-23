@@ -26,3 +26,15 @@ mudarNome(pessoa);
 dizerOla(pessoa);
 // dizerOla({nome: 'Jonas', idade: 27, cnh: true, alto:true})
 pessoa.saudar('Skywalker');
+
+// Usando Classes...
+class Cliente implements Humano {
+    nome: string = '';
+    saudar(sobrenome: string): void {
+        console.log(`Olá, meu nome é ${this.nome} ${sobrenome}`)
+    }
+}
+
+const cliente = new Cliente();
+cliente.nome = 'Ryan';
+cliente.saudar('Skywalker');
