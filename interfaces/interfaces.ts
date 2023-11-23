@@ -2,7 +2,7 @@ interface Humano {
     nome: string;
     idade?: number; // Atributo opcional
     [prop: string]: any; // Atributo dinâmico
-    saudar(sobrenome: string): void; // Método opcional
+    saudar?(sobrenome: string): void; // Método opcional
 }
 
 function dizerOla(pessoa: Humano) {
@@ -25,11 +25,12 @@ dizerOla(pessoa);
 mudarNome(pessoa);
 dizerOla(pessoa);
 // dizerOla({nome: 'Jonas', idade: 27, cnh: true, alto:true})
-pessoa.saudar('Skywalker');
+// pessoa.saudar('Skywalker');
 
 // Usando Classes...
 class Cliente implements Humano {
     nome: string = '';
+    ultimaCompra: Date = new Date(); // Mesmo adicionando mais um atributo, a interface continua sendo respeitada
     saudar(sobrenome: string): void {
         console.log(`Olá, meu nome é ${this.nome} ${sobrenome}`)
     }
@@ -38,3 +39,4 @@ class Cliente implements Humano {
 const cliente = new Cliente();
 cliente.nome = 'Ryan';
 cliente.saudar('Skywalker');
+console.log(cliente.ultimaCompra);
