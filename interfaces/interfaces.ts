@@ -1,7 +1,8 @@
 interface Humano {
     nome: string;
-    idade?: number; // O '?' indica que 'Humano' pode ter um atributo 'idade'
-    [prop: string]: any; // Indica que 'Humano' pode receber atributos dinamicamente.
+    idade?: number; // Atributo opcional
+    [prop: string]: any; // Atributo dinâmico
+    saudar(sobrenome: string): void; // Método opcional
 }
 
 function dizerOla(pessoa: Humano) {
@@ -12,12 +13,16 @@ function mudarNome(pessoa: Humano) {
     pessoa.nome = 'Lucas';
 }
 
-const pessoa = {
+const pessoa: Humano = {
     nome: 'Alberto',
-    idade: 32
+    idade: 32,
+    saudar(sobrenome: string) {
+        console.log(`Olá, meu nome é ${this.nome} ${sobrenome}`)
+    }
 }
 
 dizerOla(pessoa);
 mudarNome(pessoa);
 dizerOla(pessoa);
-dizerOla({nome: 'Jonas', idade: 27, cnh: true, alto:true})
+// dizerOla({nome: 'Jonas', idade: 27, cnh: true, alto:true})
+pessoa.saudar('Skywalker');
