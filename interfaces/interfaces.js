@@ -31,3 +31,8 @@ const cliente = new Cliente();
 cliente.nome = 'Ryan';
 cliente.saudar('Skywalker');
 console.log(cliente.ultimaCompra);
+let potencia;
+potencia = function (base, expoente) {
+    return base ** expoente;
+};
+console.log(potencia(2, 2));

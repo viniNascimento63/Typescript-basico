@@ -40,3 +40,15 @@ const cliente = new Cliente();
 cliente.nome = 'Ryan';
 cliente.saudar('Skywalker');
 console.log(cliente.ultimaCompra);
+
+// Interface Função
+interface FuncaoCalculo {
+    (a: number, b: number): number; // Assinatura de uma função que implementa a interface
+}
+
+let potencia: FuncaoCalculo;
+potencia = function(base: number, expoente: number): number {
+    return base**expoente;
+}
+
+console.log(potencia(2, 2));
